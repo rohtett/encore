@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Scribble&family=Rubik:wght@300&display=swap');
+@mixin banner-breakpoint {
+  @media screen and (min-width: 700px) {
+    @content;
+  }
+}
+@mixin layout-breakpoint {
+  @media screen and (min-width: 1250px) {
+    @content;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.app {
+  background-color: #0E0733;
+  font-family: "Rubik", Tofu, serif;
+  font-weight: 300;
+  color: #FFFFFF;
+  min-height: 100vh;
+  &--logo {
+    margin: 0 10px;
+    height: 55px;
+    width: 55px;
+    background-image: url('media/logo.png');
+    background-size: 80px 80px;
+    background-position: center;
+    &--title {
+      font-size: 35px;
+      margin: 5px 0 0 0;
+    }
+  }
+  &--header {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1136px;
+    display: flex;
+    font-size: calc(20px + 2vmin);
+    justify-content: space-between;
+    width: 100vw;
+    &--banner {
+      display: flex;
+      padding: 5px;
+    }
+    &--login {
+      transition: color 0.15s, background-color 0.15s;
+      cursor: pointer;
+      margin: 10px;
+      height: 40px;
+      width: 140px;
+      border-radius: 30px;
+      background-color: #5865F2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & h6 {
+        font-size: 0.5em;
+        margin: 5px;
+      }
+      &--logo {
+        transition: background 0.15s;
+        background-image: url('/media/discord-mark-white.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 17px;
+        width: 20px;
+        margin: 5px;
+      }
+      &:hover {
+        transition: color 0.15s, background-color 0.15s;
+        background-color: #FFFFFF;
+        color: #5865F2;
+        & div {
+          transition: background 0.15s;
+          background-image: url('/media/discord-mark-blue.png')!important;
+        }
+      }
+    }
+  }
+  &--wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #100831;
+    &--banner {
+      @include banner-breakpoint {
+        min-height: 700px;
+        width: 700px;
+      }
+      &--image {
+        height: 300px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url('/media/banner-image.png');
+        -webkit-box-shadow: inset 0px 0px 100px 0px rgba(16,8,49,1);
+        -moz-box-shadow: inset 0px 0px 100px 0px rgba(16,8,49,1);
+        box-shadow: inset 0px 0px 100px 0px rgba(16,8,49,1);
+        @include banner-breakpoint {
+          height: 700px;
+          background-size: contain;
+        }
+      }
+      &--title {
+        position: relative;
+        top: -60px;
+        text-align: center;
+        font-family: "Rubik", Tofu;
+        @include banner-breakpoint {
+          top: -100px;
+        }
+      }
+    }
+  }
+}
